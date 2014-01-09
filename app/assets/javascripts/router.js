@@ -2,9 +2,4 @@
 
 App.Router.map(function() {
   // this.resource('posts');
-  this.resource('home');
-});
-
-App.Router.reopen({
-  rootURL: '/home/'
 });
