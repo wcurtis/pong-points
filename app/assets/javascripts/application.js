@@ -21,6 +21,6 @@
 //= require pong_points
 
 // for more details see: http://emberjs.com/guides/application/
-PongPoints = Ember.Application.create();
+App = Ember.Application.create();
 
 //= require_tree .
