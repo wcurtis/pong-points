@@ -1,7 +1,13 @@
-<h1>Game on!</h1>
-<img {{bind-attr src="player1.profile_image_url"}}>
-vs
-<img {{bind-attr src="player2.profile_image_url"}}>
-<div>
-	<a {{action 'finish'}} class="btn btn-primary btn-lg" role="button">Finish Game</a>
-</div>
+{{#if gameInProgress}}
+  <h1>Game on!</h1>
+  <img {{bind-attr src="player1.profile_image_url"}}>
+  vs
+  <img {{bind-attr src="player2.profile_image_url"}}>
+  <div>
+  	<a {{action 'finish'}} class="btn btn-primary btn-lg" role="button">Finish Game</a>
+  </div>
+{{else}}
+  <h1>{{winner.name}} wins!</h1>
+  <img {{bind-attr src="winner.profile_image_url"}}>
+  <p>{{#link-to 'index' class="btn btn-primary btn-lg" role="button"}}Go Home{{/link-to}}</p>
+{{/if}}
