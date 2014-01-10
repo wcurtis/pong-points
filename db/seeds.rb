@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+players = Player.create([
+  { id: 1, first_name: 'Wayne', last_name: "Rooney", profile_image_url: "/assets/players/rooney.jpg" },
+  { id: 2, first_name: 'Leonel', last_name: "Messi", profile_image_url: "/assets/players/messi.jpg" }
+])
