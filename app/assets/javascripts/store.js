@@ -6,7 +6,11 @@
 //   adapter: '_ams'
 // });
 
+DS.RESTAdapter.reopen({
+  namespace: 'api',
+});
+
 App.Store = DS.Store.extend({
   revision: 13,
-  adapter: DS.FixtureAdapter
+  adapter: DS.RESTAdapter
 });
