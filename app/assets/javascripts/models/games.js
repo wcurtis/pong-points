@@ -10,6 +10,6 @@ App.Game = DS.Model.extend({
   })
 });
 
-App.Game.FIXTURES = [
-  { id: 1, player1: 1, player2: 2, created_at: new Date() },
-];
+// App.Game.FIXTURES = [
+//   { id: 1, player1: 1, player2: 2, created_at: new Date() },
+// ];
