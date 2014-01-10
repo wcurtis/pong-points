@@ -1,23 +1,14 @@
 class Api::PlayersController < ApplicationController
 
+  respond_to :json
+
   def index
-    @players = [
-      { id: 1, name: 'Wayne Rooney', profile_image_url: "/assets/players/rooney.jpg" },
-      { id: 2, name: 'Leo Messi' , profile_image_url: "/assets/players/messi.jpg" }
-    ]
-    
-    respond_to do |format|
-      format.json { render :json => @players }
-    end
+    # Not sure why we need the as_json but if it's not therer each object is wrapped in 'players'
+    respond_with Player.all.as_json
   end
 
   def show
-    @players = [
-      { id: 1, name: 'Wayne Rooney', profile_image_url: "/assets/players/rooney.jpg" },
-      { id: 2, name: 'Leo Messi' , profile_image_url: "/assets/players/messi.jpg" }
-    ]
-
-    player = @players[params[:id].to_f - 1]
+    player = Player.find(params[:id])
 
     respond_to do |format|
       format.json { render :json => { player: player }}
