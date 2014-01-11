@@ -28,12 +28,7 @@ class Api::GamesController < ApplicationController
     
     game = Game.find(params[:id])
 
-    response = game.as_json
-    response['players'] = game.players.pluck(:id)
-
-    respond_to do |format|
-      format.json { render :json => { game: response } }
-    end
+    renderObject game
   end
 
   def create
@@ -46,7 +41,18 @@ class Api::GamesController < ApplicationController
     end
 
     @game.save!
-    render :json => @game
+    renderObject @game
+  end
+
+  # Serializes and renders our game
+  # TODO: Need to get active model serializers working
+  def renderObject game
+    response = game.as_json
+    response['players'] = game.players.pluck(:id)
+
+    respond_to do |format|
+      format.json { render :json => { game: response } }
+    end
   end
 
   def game_params
