@@ -1,13 +1,21 @@
 App.Game = DS.Model.extend({
-  player1: DS.belongsTo('player'),
-  player2: DS.belongsTo('player'),
   winner: DS.belongsTo('player'),
   status: DS.attr('string', {
     defaultValue: 'in_progress'
   }),
   created_at: DS.attr('string', {
       defaultValue: function() { return new Date(); }
-  })
+  }),
+
+  player1: function() {
+    return this.get('players')[0];
+  }.property('players'),
+
+  player2: function() {
+    return this.get('players')[1];
+  }.property('players'),
+
+  players: DS.attr('raw')
 });
 
 // App.Game.FIXTURES = [

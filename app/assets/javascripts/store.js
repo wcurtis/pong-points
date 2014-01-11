@@ -14,3 +14,17 @@ App.Store = DS.Store.extend({
   revision: 13,
   adapter: DS.RESTAdapter
 });
+
+/**
+ * This lets us specify DS.attr('raw') in our models
+ * so we can access array and object properties sent
+ * back from our api.
+ */
+App.RawTransform = DS.Transform.extend({
+  serialize: function(value) {
+    return value;
+  },
+  deserialize: function(value) {
+    return value;
+  }
+});
