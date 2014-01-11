@@ -6,10 +6,13 @@ App.GamesNewController = Ember.ArrayController.extend({
       var self = this;
 
       var gameData = {
+        // TODO: Get these ids from user selection
         players: [1,2]
       };
+
       var game = this.store.createRecord('game', gameData);
-      game.save(function() {
+      
+      game.save().then(function() {
         self.transitionToRoute('game', game);
       });
     }
