@@ -48,7 +48,7 @@ class Api::GamesController < ApplicationController
   # TODO: Need to get active model serializers working
   def renderObject game
     response = game.as_json
-    response['players'] = game.players.pluck(:id)
+    response['players'] = game.players
 
     respond_to do |format|
       format.json { render :json => { game: response } }
