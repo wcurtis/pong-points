@@ -1,9 +1,16 @@
 {{#if gameInProgress}}
-  <h1>Game on!</h1>
-  <img {{bind-attr src="player1.profile_image_url"}}>
-  vs
-  <img {{bind-attr src="player2.profile_image_url"}}>
-  <div>
+  <h1>{{player1.first_name}} vs {{player2.first_name}}!</h1>
+  <hr>
+  <div class="row player-grid">
+    <div class="player-item col-xs-6 col-sm-4 col-sm-offset-2">
+      <img {{bind-attr src="player1.profile_image_url"}}>
+    </div>
+    <div class="player-item col-xs-6 col-sm-4">
+      <img {{bind-attr src="player2.profile_image_url"}}>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
   	<a {{action 'finish'}} class="btn btn-primary btn-lg" role="button">Finish Game</a>
   </div>
 {{else}}
