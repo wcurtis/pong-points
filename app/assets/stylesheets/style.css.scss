@@ -1,1 +1,25 @@
-body { padding-top: 70px; }
+
+/**
+ * Compensation for fixed top header
+ */
+body { padding-top: 50px; }
+
+h1 {
+  text-align: center;
+}
+
+/*****************
+ * Pages
+ *****************/
+
+.games-new {
+
+  .player-grid {
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+
+}
