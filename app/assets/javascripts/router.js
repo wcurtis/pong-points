@@ -5,4 +5,7 @@ App.Router.map(function() {
 	this.route('new');
   });
   this.resource('game', { path: '/games/:id' });
+
+  this.resource('player', { path: '/players/:id' });
+
 });
