@@ -4,7 +4,7 @@ class Api::PlayersController < ApplicationController
 
   def index
     # Not sure why we need the as_json but if it's not therer each object is wrapped in 'players'
-    respond_with Player.all.as_json
+    respond_with players: Player.all
   end
 
   def show
