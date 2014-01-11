@@ -1,6 +1,11 @@
 App.Player = DS.Model.extend({
-  name: DS.attr( 'string' ),
-  profile_image_url: DS.attr( 'string' )
+  first_name: DS.attr( 'string' ),
+  last_name: DS.attr( 'string' ),
+  profile_image_url: DS.attr( 'string' ),
+  
+  name: function() {
+    return this.get('first_name') + ' ' + this.get('last_name');
+  }.property('first_name', 'last_name'),
 });
 
 // App.Player.FIXTURES = [
