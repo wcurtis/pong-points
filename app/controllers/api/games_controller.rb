@@ -1,5 +1,6 @@
 class Api::GamesController < ApplicationController
 
+  protect_from_forgery with: :null_session
   respond_to :json
 
   def index
@@ -33,6 +34,23 @@ class Api::GamesController < ApplicationController
     respond_to do |format|
       format.json { render :json => { game: response } }
     end
+  end
+
+  def create
+    @game = Game.new({
+      status: 'in_progress'
+    })
+
+    params['players'].each do |playerId|
+      @game.players.push(Player.find(playerId))
+    end
+
+    @game.save!
+    render :json => @game
+  end
+
+  def game_params
+    params.permit(:players)
   end
 
 end
