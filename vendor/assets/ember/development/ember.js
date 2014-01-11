@@ -1,5 +1,3 @@
-// Fetched from channel: release, with url http://builds.emberjs.com/release/ember.js
-// Fetched on: 2014-01-09T03:18:41Z
 /*!
  * @overview  Ember - JavaScript Application Framework
  * @copyright Copyright 2011-2014 Tilde Inc. and contributors
@@ -7,7 +5,7 @@
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.3.1+pre.7ba4558c
+ * @version   1.3.0
  */
 
 
@@ -205,7 +203,7 @@ if (!Ember.testing) {
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.3.1+pre.7ba4558c
+ * @version   1.3.0
  */
 
 
@@ -288,7 +286,7 @@ var define, requireModule, require, requirejs;
 
   @class Ember
   @static
-  @version 1.3.1+pre.7ba4558c
+  @version 1.3.0
 */
 
 if ('undefined' === typeof Ember) {
@@ -315,10 +313,10 @@ Ember.toString = function() { return "Ember"; };
 /**
   @property VERSION
   @type String
-  @default '1.3.1+pre.7ba4558c'
+  @default '1.3.0'
   @static
 */
-Ember.VERSION = '1.3.1+pre.7ba4558c';
+Ember.VERSION = '1.3.0';
 
 /**
   Standard environmental variables. You can define these in a global `EmberENV`
@@ -9573,7 +9571,7 @@ define("rsvp/promise/all",
       ```
 
       @method all
-      @for Ember.RSVP.Promise
+      @for RSVP.Promise
       @param {Array} entries array of promises
       @param {String} label optional string for labeling the promise.
       Useful for tooling.
@@ -25395,8 +25393,9 @@ Ember.Component = Ember.View.extend(Ember.TargetActionSupport, {
     set(this, 'controller', this);
   },
 
-  defaultLayout: function(context, options){
-    Ember.Handlebars.helpers['yield'].call(context, options);
+  defaultLayout: function(options){
+    options.data = {view: options._context};
+    Ember.Handlebars.helpers['yield'].apply(this, [options]);
   },
 
   // during render, isolate keywords

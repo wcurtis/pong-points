@@ -1,5 +1,3 @@
-// Fetched from channel: release, with url http://builds.emberjs.com/beta/ember-data.js
-// Fetched on: 2014-01-09T03:18:46Z
 /*!
  * @overview  Ember Data
  * @copyright Copyright 2011-2013 Tilde Inc. and contributors.
@@ -8,7 +6,7 @@
  */
 
 
- // Version: 1.0.0-beta.5+pre.69cb8b87
+ // Version: 1.0.0-beta.4
 
 (function() {
 var define, requireModule;
@@ -63,7 +61,7 @@ var define, requireModule;
 var DS;
 if ('undefined' === typeof DS) {
   DS = Ember.Namespace.create({
-    VERSION: '1.0.0-beta.5+pre.69cb8b87'
+    VERSION: '1.0.0-beta.4'
   });
 
   if ('undefined' !== typeof window) {
