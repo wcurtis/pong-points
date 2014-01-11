@@ -15,6 +15,14 @@
   </div>
 {{else}}
   <h1>{{winningPlayer.first_name}} wins!</h1>
-  <img {{bind-attr src="winningPlayer.profile_image_url"}}>
-  <p>{{#link-to 'index' class="btn btn-primary btn-lg" role="button"}}Go Home{{/link-to}}</p>
+  <hr>
+  <div class="row player-grid">
+    <div class="player-item col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+      <img {{bind-attr src="winningPlayer.profile_image_url"}}>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    {{#link-to 'index' class="btn btn-primary btn-lg" role="button"}}Go Home{{/link-to}}
+  </div>
 {{/if}}
