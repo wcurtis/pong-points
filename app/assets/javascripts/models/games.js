@@ -16,7 +16,7 @@ App.Game = DS.Model.extend({
     return this.get('players')[1];
   }.property('players'),
 
-  winnerModel: function() {
+  winningPlayer: function() {
     return this.get('players').findBy('id', this.get('winner'));
   }.property('winner'),
 
