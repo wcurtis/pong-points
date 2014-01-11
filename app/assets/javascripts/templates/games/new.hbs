@@ -3,13 +3,14 @@
   <hr>
   <div class="row player-grid">
     {{#each player in controller}}
-      <div class="col-xs-6">
+      <div class="player-item col-xs-6">
     	 <img {{bind-attr src="player.profile_image_url"}}>
       {{!-- {{player.name}} --}}
       </div>
     {{/each}}
   </div>
-  <div>
+  <hr>
+  <div class="actions">
   	<a {{action 'save'}} class="btn btn-primary btn-lg" role="button">Start Game</a>
   </div>
 </div>

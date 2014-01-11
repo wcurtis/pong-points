@@ -8,6 +8,10 @@ h1 {
   text-align: center;
 }
 
+.app-container {
+  padding-bottom: 20px;
+}
+
 /*****************
  * Pages
  *****************/
@@ -15,9 +19,19 @@ h1 {
 .games-new {
 
   .player-grid {
-    img {
-      width: 100%;
-    }
+
+    .player-item {
+
+      margin-bottom: 10px;
+
+      img {
+        width: 100%;
+      }
+    }    
+  }
+
+  .actions {
+    text-align: center;
   }
 
 
