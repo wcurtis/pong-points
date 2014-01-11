@@ -44,6 +44,18 @@ class Api::GamesController < ApplicationController
     renderObject @game
   end
 
+  def update
+
+    @game = Game.find(params[:id])
+
+    if (params[:winner])
+      @game.winner = params[:winner]
+      @game.status = 'finished'
+      @game.save!
+    end
+    renderObject @game
+  end
+
   # Serializes and renders our game
   # TODO: Need to get active model serializers working
   def renderObject game
@@ -56,7 +68,7 @@ class Api::GamesController < ApplicationController
   end
 
   def game_params
-    params.permit(:players)
+    params.permit(:players, :winner)
   end
 
 end
