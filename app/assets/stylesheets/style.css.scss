@@ -16,6 +16,19 @@ h1 {
  * Pages
  *****************/
 
+.home-page {
+
+  padding-top: 20px;
+
+  .jumbotron {
+    text-align: center;
+
+    .btn {
+      margin-top: 20px;
+    }
+  }
+}
+
 .games-new {
 
   .player-grid {
@@ -36,3 +49,4 @@ h1 {
 .actions {
   text-align: center;
 }
+
