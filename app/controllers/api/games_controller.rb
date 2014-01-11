@@ -28,7 +28,7 @@ class Api::GamesController < ApplicationController
     game = Game.find(params[:id])
 
     response = game.as_json
-    response['players'] = game.players
+    response['players'] = game.players.pluck(:id)
 
     respond_to do |format|
       format.json { render :json => { game: response } }
