@@ -1,5 +1,6 @@
 App.Game = DS.Model.extend({
-  winner: DS.belongsTo('player'),
+  // winner: DS.belongsTo('player'),
+  winner: DS.attr('number'),
   status: DS.attr('string', {
     defaultValue: 'in_progress'
   }),
