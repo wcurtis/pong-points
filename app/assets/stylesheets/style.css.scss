@@ -87,10 +87,14 @@ h1 {
    */
   @media (max-width: $screen-xs-max) {
     .btn {
+      // Emulating btn-block
       display: block;
       width: 100%;
       padding-right: 0;
       padding-left: 0;      
+
+      // Makes stacking buttons nice
+      margin-bottom: 10px;
     }
   }
 }
