@@ -66,4 +66,17 @@ App.GameController = Ember.ObjectController.extend({
     }
   },
 
+  /**
+   * This clears all selected players, called by route activate
+   */
+  reset: function() {
+    if (this.get('selected')) {
+      // I don't think this ever gets called because new
+      // controllers get created each time for player1 and player2.
+      // TODO: Find the ember way to bind these controllers with properties.
+      this.get('selected').deselect();
+    }
+    this.set('selected', null);
+  }
+
 });
