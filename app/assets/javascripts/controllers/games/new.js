@@ -42,6 +42,12 @@ App.GamesNewController = Ember.ArrayController.extend({
         return;
       }
 
+      // Deselect the earliest selected player to make room for new one
+      if (selected.length === 2) {
+        var outcast = selected.shift();
+        outcast.deselect();
+      }
+
       // Limit selection to 2 players
       if (selected.length < 2) {
         selected.push(controller);
