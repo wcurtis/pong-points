@@ -69,12 +69,30 @@ h1 {
   }
 }
 
+.game-page {
+  .game-tip {
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(122, 122, 122);
+  }
+}
+
 .player-item {
 
   margin-bottom: 10px;
 
+  .selected img {
+    border-color: #3276b1;
+  }
+
   img {
     width: 100%;
+    overflow: hidden;
+
+    // Style inspiration: http://designshack.net/articles/css/joshuajohnson-2/
+    border: 10px solid white;
+    -webkit-box-shadow: 2px 2px 5px #CFCFCF;
+    box-shadow: 2px 2px 5px #CFCFCF;
   }
 } 
 
