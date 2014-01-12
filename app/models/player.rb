@@ -34,6 +34,18 @@ class Player < ActiveRecord::Base
 
       puts "Added user to ST: " + user.email;
     end
+
+    # Fetch and update points balance
+    # TODO: Cache these values and invalidate cache when event is sent
+    options = {
+      :headers => headers,
+    }
+    response = HTTParty.get('https://api.sweettooth.io/v1/customers/' + user.st_id.to_s, options)
+    stUser = JSON.parse(response.body)
+    user.st_points_balance = stUser['points_balance']
+    user.save!
+
+    puts "Updated points balance for: " + user.email + " to " + user.st_points_balance.to_s;
   end
 
   def name
