@@ -33,6 +33,22 @@ class Player < ActiveRecord::Base
       user.save!
 
       puts "Added user to ST: " + user.email;
+
+      # Send signup event to ST
+      stSignupData = {
+        "customer_id"  => user.st_id,
+        "event_type"   => "signup"
+      }
+      postData = {
+        :headers => headers,
+        :body => stSignupData.to_json
+      }
+      response = HTTParty.post('https://api.sweettooth.io/v1/events', postData)
+      stEvent = JSON.parse(response.body)
+
+      # TODO: Refresh user points here
+
+      puts "Sent signup event to ST: " + stEvent['id'];
     end
 
     # Fetch and update points balance
