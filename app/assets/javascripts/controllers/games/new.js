@@ -14,8 +14,9 @@ App.GamesNewController = Ember.ArrayController.extend({
       var self = this;
 
       var gameData = {
-        // TODO: Get these ids from user selection
-        players: this.get('selected')
+        players: this.get('selected').map(function(s) {
+          return s.get('id');
+        })
       };
 
       var game = this.store.createRecord('game', gameData);
@@ -32,20 +33,19 @@ App.GamesNewController = Ember.ArrayController.extend({
      */
     toggleSelected: function(controller) {
 
-      var id = controller.get('id');
       var selected = this.get('selected');
 
       // Deselect if currently selected
-      if (selected.contains(id)) {
+      if (selected.contains(controller)) {
         controller.deselect();
-        this.set('selected', selected.without(id));
+        this.set('selected', selected.without(controller));
         return;
       }
 
       // Limit selection to 2 players
       if (selected.length < 2) {
-        selected.push(id);
-        
+        selected.push(controller);
+
         // Need to reset and call toArray (to clone) or
         // ember won't pickup the change which is needed
         // for recalculating the canSave property
@@ -53,6 +53,16 @@ App.GamesNewController = Ember.ArrayController.extend({
         controller.select();
       }
     }
+  },
+
+  /**
+   * This clears all selected players, called by route activate
+   */
+  reset: function() {
+    this.get('selected').forEach(function(selected) {
+      selected.deselect();
+    });
+    this.set('selected', []);
   }
 
 });
