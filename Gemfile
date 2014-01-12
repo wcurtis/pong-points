@@ -45,3 +45,5 @@ gem "active_model_serializers"
 gem "ember-rails", "~>0.14"
 gem "ember-source", "~>1.1"
 
+
+gem 'httparty', '0.12.0'

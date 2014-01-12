@@ -2,6 +2,7 @@ App.Player = DS.Model.extend({
   first_name: DS.attr( 'string' ),
   last_name: DS.attr( 'string' ),
   profile_image_url: DS.attr( 'string' ),
+  st_points_balance: DS.attr( 'number' ),
   
   name: function() {
     return this.get('first_name') + ' ' + this.get('last_name');

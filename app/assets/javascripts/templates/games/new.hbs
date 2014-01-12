@@ -5,7 +5,10 @@
     {{#each player in controller}}
       <div class="player-item col-xs-6 col-sm-3">
         <a {{action 'toggleSelected' controller}} {{bind-attr class="isSelected:selected"}}>
+          <div class="img-wrapper">
     	    <img {{bind-attr src="player.profile_image_url"}}>
+          <div class="points-balance">{{player.st_points_balance}} Points</div>
+        </div>
         </a>
       {{!-- {{player.name}} --}}
       </div>
