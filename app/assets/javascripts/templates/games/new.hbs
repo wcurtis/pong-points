@@ -7,7 +7,7 @@
         <a {{action 'toggleSelected' controller}} {{bind-attr class="isSelected:selected"}}>
           <div class="img-wrapper">
     	    <img {{bind-attr src="player.profile_image_url"}}>
-          <div class="points-balance">100 Points</div>
+          <div class="points-balance">{{player.st_points_balance}} Points</div>
         </div>
         </a>
       {{!-- {{player.name}} --}}
