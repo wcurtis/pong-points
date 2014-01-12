@@ -7,8 +7,10 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Pong Points</a>
+    {{#link-to 'index' class="navbar-brand"}}Pong Points{{/link-to}}
   </div>
 </nav>
 
-{{outlet}}
+<div class="container app-container">
+  {{outlet}}
+</div>

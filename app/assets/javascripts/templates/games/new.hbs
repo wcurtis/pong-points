@@ -1,8 +1,16 @@
-<h1>Select Players</h1>
-{{#each player in controller}}
-	<img {{bind-attr src="player.profile_image_url"}}>
-  {{player.name}}
-{{/each}}
-<div>
-	<a {{action 'save'}} class="btn btn-primary btn-lg" role="button">Start Game</a>
+<div class="games-new">
+  <h1>Select Players</h1>
+  <hr>
+  <div class="row player-grid">
+    {{#each player in controller}}
+      <div class="player-item col-xs-6 col-sm-3">
+    	 <img {{bind-attr src="player.profile_image_url"}}>
+      {{!-- {{player.name}} --}}
+      </div>
+    {{/each}}
+  </div>
+  <hr>
+  <div class="actions">
+  	<a {{action 'save'}} class="btn btn-primary btn-lg" role="button">Start Game</a>
+  </div>
 </div>
