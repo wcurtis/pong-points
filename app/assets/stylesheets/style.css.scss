@@ -34,7 +34,10 @@ $screen-md-max:              ($screen-lg-min - 1);
 /**
  * Compensation for fixed top header
  */
-body { padding-top: 50px; }
+body { 
+  padding-top: 50px; 
+  // background-image: url("/assets/textures/groovepaper.png");
+}
 
 h1 {
   text-align: center;
@@ -45,11 +48,15 @@ h1 {
 }
 
 .navbar {
+  // background-image: url("/assets/textures/tweed.png");
+  // border: 0;
+
   .navbar-brand {
 
     position: relative;
     padding-left: 58px;
-    
+    // color: white;
+
     img {
       width: 36px;
       position: absolute;
