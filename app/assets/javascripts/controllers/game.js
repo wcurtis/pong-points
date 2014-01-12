@@ -28,7 +28,7 @@ App.GameController = Ember.ObjectController.extend({
     finish: function() {
 
       var game = this.get('model');
-      game.set('winner', 1);
+      game.set('winner', this.get('selected').get('id'));
       game.set('status', 'complete');
 
       game.save();
