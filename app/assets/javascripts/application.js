@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require fastclick
 //= require turbolinks
 //= require handlebars
 //= require ember
@@ -21,5 +22,9 @@
 
 // for more details see: http://emberjs.com/guides/application/
 App = Ember.Application.create();
+
+window.addEventListener('load', function() {
+    FastClick.attach(document.body);
+}, false);
 
 //= require_tree .
