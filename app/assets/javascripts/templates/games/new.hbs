@@ -4,7 +4,9 @@
   <div class="row player-grid">
     {{#each player in controller}}
       <div class="player-item col-xs-6 col-sm-3">
-    	 <img {{bind-attr src="player.profile_image_url"}}>
+        <a {{action 'toggleSelected' controller}} {{bind-attr class="isSelected:selected"}}>
+    	    <img {{bind-attr src="player.profile_image_url"}}>
+        </a>
       {{!-- {{player.name}} --}}
       </div>
     {{/each}}
