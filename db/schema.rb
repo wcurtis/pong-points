@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110231806) do
+ActiveRecord::Schema.define(version: 20140112202906) do
 
   create_table "games", force: true do |t|
     t.string   "status"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140110231806) do
     t.string   "profile_image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
 end
