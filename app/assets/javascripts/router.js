@@ -9,8 +9,3 @@ App.Router.map(function() {
   this.resource('player', { path: '/players/:id' });
 
 });
-
-// Removes /#/ from url
-App.Router.reopen({
-  location: 'history'
-});
