@@ -14,12 +14,13 @@
         </a>
       </div>
     </div>
-    <div {{bind-attr class="canFinish:invisible :game-tip"}}>
-      <p>Select the winner</p>
-    </div>
     <hr>
     <div class="actions">
-    	<a {{action 'finish'}} {{bind-attr class="canFinish:enabled:disabled :btn :btn-primary :btn-lg"}}>Finish Game</a>
+      {{#if canFinish}}
+    	  <a {{action 'finish'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Finish Game</a>
+      {{else}}
+        <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Select Winner</a>
+      {{/if}}
     </div>
   {{else}}
     <h1>{{winningPlayer.first_name}} wins!</h1>
