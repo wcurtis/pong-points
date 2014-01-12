@@ -8,6 +8,10 @@ App.GameController = Ember.ObjectController.extend({
     return this.get('status') === 'in_progress';
   }.property('status'),
 
+  canFinish: function() {
+    return this.get('selected') !== null;
+  }.property('selected'),
+
   /**
    * TODO: Find out a better way to bind these controller to the properties
    * of player1 and player2. There must be a better 'ember way'
