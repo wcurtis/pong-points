@@ -105,8 +105,34 @@ h1 {
 
   margin-bottom: 10px;
 
-  .selected img {
-    border-color: #3276b1;
+  .selected {
+
+    img {
+      border-color: #3276b1;
+    }
+
+    .img-wrapper .points-balance {
+      border-left-color: #3276b1;
+      border-right-color: #3276b1;
+    }
+  }
+
+  .img-wrapper {
+    position: relative;
+    
+    .points-balance {
+      position: absolute;
+      background-image: url("/assets/black80.png");
+      color: white;
+      text-decoration: none;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      border: 10px solid;
+      border-bottom-width: 0;
+      border-top-width: 0;
+      padding: 5px;
+    }
   }
 
   img {
