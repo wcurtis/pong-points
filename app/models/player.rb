@@ -13,11 +13,15 @@ class Player < ActiveRecord::Base
       'Authorization' => "Basic #{Base64.encode64(credentials)}"
     }
 
+    # Add to ST
     stUserData = {
-      "email" => user.email
+      "email" => 'test@example.com'
     }
-
-    response = HTTParty.get('https://api.sweettooth.io/v1/customers', { :headers => headers })
+    postData = {
+      :headers => headers,
+      :body => stUserData.to_json
+    }
+    response = HTTParty.post('https://api.sweettooth.io/v1/customers', postData)
     stUser = JSON.parse(response.body)
     puts "You have initialized " + user.email;
     puts stUser.inspect
