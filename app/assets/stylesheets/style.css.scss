@@ -73,10 +73,18 @@ h1 {
 
   margin-bottom: 10px;
 
+  &.active img {
+    border-color: #3276b1;
+  }
+
   img {
     width: 100%;
-    box-shadow: 0 8px 6px -6px hsla(0, 0%, 0%, 1);
-    border-radius: 20px;
+    overflow: hidden;
+
+    // Style inspiration: http://designshack.net/articles/css/joshuajohnson-2/
+    border: 10px solid white;
+    -webkit-box-shadow: 2px 2px 5px #CFCFCF;
+    box-shadow: 2px 2px 5px #CFCFCF;
   }
 } 
 
