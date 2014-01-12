@@ -44,6 +44,23 @@ h1 {
   padding-bottom: 20px;
 }
 
+.navbar {
+  .navbar-brand {
+
+    position: relative;
+    padding-left: 58px;
+    
+    img {
+      width: 36px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 8px;
+      margin-left: 15px;
+    }
+  }
+}
+
 /*****************
  * Pages
  *****************/
