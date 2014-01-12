@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
 
   after_initialize do |user|
 
-    credentials = "sk_hwHybrSsMLvUj7Crt8Cz142Y:"
+    credentials = "sk_4QnT9xxvKtLzAi6Hst72bp1Y:"
 
     headers = {
       'Accept' => "application/json",
