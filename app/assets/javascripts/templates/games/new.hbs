@@ -13,6 +13,6 @@
   </div>
   <hr>
   <div class="actions">
-  	<a {{action 'save'}} class="btn btn-primary btn-lg" role="button">Start Game</a>
+  	<a {{action 'save'}} {{bind-attr class="canSave:enabled:disabled :btn :btn-primary :btn-lg"}}>Start Game</a>
   </div>
 </div>

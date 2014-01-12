@@ -4,6 +4,10 @@ App.GamesNewController = Ember.ArrayController.extend({
 
   selected: [],
 
+  canSave: function() {
+    return this.get('selected').length === 2;
+  }.property('selected'),
+
   actions: {
     save: function() {
 
@@ -41,6 +45,11 @@ App.GamesNewController = Ember.ArrayController.extend({
       // Limit selection to 2 players
       if (selected.length < 2) {
         selected.push(id);
+        
+        // Need to reset and call toArray (to clone) or
+        // ember won't pickup the change which is needed
+        // for recalculating the canSave property
+        this.set('selected', selected.toArray());
         controller.select();
       }
     }
