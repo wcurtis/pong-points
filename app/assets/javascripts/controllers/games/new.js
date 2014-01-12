@@ -11,7 +11,7 @@ App.GamesNewController = Ember.ArrayController.extend({
 
       var gameData = {
         // TODO: Get these ids from user selection
-        players: [1,2]
+        players: this.get('selected')
       };
 
       var game = this.store.createRecord('game', gameData);
