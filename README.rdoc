@@ -1,28 +1,14 @@
-== README 
+== Sweet Tooth Pong
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sweet Tooth Pong is an app that helps us track ping pong matches between employees at the Sweet Tooth office. Points can be earned for winning games, and must be spent to play.
 
-Things you may want to cover:
+All points functionality is powered by the Sweet Tooth platform. Learn how to get started at http://sweettoothrewards.com/api
 
-* Ruby version
+Goals for this project:
 
-* System dependencies
+* Use the Sweet Tooth API internally so we can continue to improve on developer experience
 
-* Configuration
+* Experience first hand the common challenges and benefits of implementing a multi-channel points program, so we can help and collaborate with other development teams more effectively
 
-* Database creation
+* Most importantly, keep track of who's the Sweet Tooth pong champ on a daily basis :)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
