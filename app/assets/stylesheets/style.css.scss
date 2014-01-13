@@ -66,6 +66,13 @@ h1 {
       margin-left: 15px;
     }
   }
+
+  .loader {
+    padding-top: 14px;
+    padding-right: 24px;
+    // Default hidden, jquery overrides this between routes 
+    display: none;
+  }
 }
 
 /*****************
