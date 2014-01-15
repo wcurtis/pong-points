@@ -48,4 +48,4 @@ gem "ember-source", "~>1.1"
 
 gem 'httparty', '0.12.0'
 
-gem 'sweettooth', :path => "/github/sweettooth-ruby"  
+gem 'sweettooth', '~>0.9', :path => "/github/sweettooth-ruby"  
