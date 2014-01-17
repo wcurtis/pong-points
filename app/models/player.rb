@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
 
   after_initialize do |user|
 
-    credentials = "sk_4QnT9xxvKtLzAi6Hst72bp1Y:"
+    credentials = SweetTooth.api_key
 
     headers = {
       'Accept' => "application/json",

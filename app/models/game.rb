@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   after_update do |game|
     if game.status == 'finished' && game.winner
 
-      credentials = "sk_4QnT9xxvKtLzAi6Hst72bp1Y:"
+      credentials = SweetTooth.api_key
 
       headers = {
         'Accept' => "application/json",
