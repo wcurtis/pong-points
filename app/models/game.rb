@@ -2,15 +2,15 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :players
 
   after_update do |game|
-    
+
     if game.status == 'finished' && game.winner
 
-      # Send game win event to Sweet Tooth to earn points
-      event = SweetTooth::Event.create(
+      # Send game win activity to Sweet Tooth to earn points
+      event = SweetTooth::Activity.create(
         "customer_id"  => Player.find(game.winner).st_id,
-        "event_type"   => "game_win"
+        "verb"   => "game_win"
       )
-      puts "Sent event to ST: " + event.id;
+      puts "Sent activity to ST: " + event.id;
     end
   end
 end
