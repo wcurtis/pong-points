@@ -5,4 +5,4 @@
 # SweetTooth.api_key = "sk_4QnT9xxvKtLzAi6Hst72bp1Y"
 
 # Dev
-SweetTooth.api_key = "sk_9CjYcRGxVr2YdSQZcEaxBx6c"
+SweetTooth.api_key = ENV['SWEETTOOTH_API_KEY']
