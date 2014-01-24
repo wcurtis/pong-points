@@ -19,7 +19,9 @@ App.GameRoute = Ember.Route.extend({
   },
 
   actions: {
-    finish: function(router, event) {
+    finish: function() {
+
+      var self = this;
 
       router = this.get('router');
       var game = this.currentModel;
@@ -28,6 +30,10 @@ App.GameRoute = Ember.Route.extend({
       game.set('status', 'complete');
 
       game.save().then(function() {
+        // We remove this game from the store so it's forced to refetch
+        // it on the route transition. This is required so the request
+        // will wait for the activity to finish processing
+        self.store.unloadRecord(game);
         router.transitionTo('gameResult', game.get('id'));
       });
     },

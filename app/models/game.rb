@@ -18,6 +18,16 @@ class Game < ActiveRecord::Base
   end
 
   after_initialize do |game|
-    sleep 5
+
+    if game.st_activity_id
+      activity = SweetTooth::Activity.retrieve(game.st_activity_id)
+
+      # Poll Sweet Tooth until the activity is finished processing
+      while !activity.processed
+        puts "Waiting on activity processing 1 second"
+        sleep 1
+        activity = SweetTooth::Activity.retrieve(game.st_activity_id)
+      end
+    end
   end
 end
