@@ -3,14 +3,17 @@ class Game < ActiveRecord::Base
 
   after_update do |game|
 
-    if game.status == 'finished' && game.winner
+    if game.status == 'finished' && game.winner && game.st_activity_id == nil
 
       # Send game win activity to Sweet Tooth to earn points
-      event = SweetTooth::Activity.create(
+      activity = SweetTooth::Activity.create(
         "customer_id"  => Player.find(game.winner).st_id,
         "verb"   => "game_win"
       )
-      puts "Sent activity to ST: " + event.id;
+      puts "Sent activity to ST: " + activity.id;
+
+      game.st_activity_id = activity.id;
+      game.save!
     end
   end
 end
