@@ -18,4 +18,19 @@ App.GameRoute = Ember.Route.extend({
     this.controllerFor('game').reset();
   },
 
+  actions: {
+    finish: function(router, event) {
+
+      router = this.get('router');
+      var game = this.currentModel;
+
+      game.set('winner', this.controllerFor('game').get('selected').get('id'));
+      game.set('status', 'complete');
+
+      game.save().then(function() {
+        router.transitionTo('gameResult', game.get('id'));
+      });
+    },
+  }
+
 });

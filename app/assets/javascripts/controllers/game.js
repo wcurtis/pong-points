@@ -29,14 +29,16 @@ App.GameController = Ember.ObjectController.extend({
   }.property('player2'),
 
   actions: {
-    finish: function() {
+    // finish: function(router, event) {
 
-      var game = this.get('model');
-      game.set('winner', this.get('selected').get('id'));
-      game.set('status', 'complete');
+    //   var game = this.get('model');
+    //   game.set('winner', this.get('selected').get('id'));
+    //   game.set('status', 'complete');
 
-      game.save();
-    },
+    //   game.save().then(function() {
+    //     router.transitionTo('gameResult', game);
+    //   });
+    // },
 
     /**
      * TODO: This action also exists in the games.new controller.

@@ -16,4 +16,8 @@ class Game < ActiveRecord::Base
       game.save!
     end
   end
+
+  after_initialize do |game|
+    sleep 5
+  end
 end
