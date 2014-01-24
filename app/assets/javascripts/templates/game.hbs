@@ -16,7 +16,11 @@
   <hr>
   <div class="actions">
     {{#if canFinish}}
-  	  <a {{action 'finish'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Finish Game</a>
+      {{#if finishing}}
+    	  <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Finishing Game..</a>
+      {{else}}
+        <a {{action 'finish'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Finish Game</a>
+      {{/if}}
     {{else}}
       <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Select Winner</a>
     {{/if}}

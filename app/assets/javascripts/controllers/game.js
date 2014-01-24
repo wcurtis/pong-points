@@ -12,6 +12,8 @@ App.GameController = Ember.ObjectController.extend({
     return this.get('selected') !== null;
   }.property('selected'),
 
+  finishing: false,
+
   /**
    * TODO: Find out a better way to bind these controller to the properties
    * of player1 and player2. There must be a better 'ember way'
@@ -69,6 +71,7 @@ App.GameController = Ember.ObjectController.extend({
       this.get('selected').deselect();
     }
     this.set('selected', null);
+    this.set('finishing', false);
   }
 
 });

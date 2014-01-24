@@ -23,11 +23,14 @@ App.GameRoute = Ember.Route.extend({
 
       var self = this;
 
-      router = this.get('router');
+      var router = this.get('router');
+      var controller = this.controllerFor('game');
       var game = this.currentModel;
 
-      game.set('winner', this.controllerFor('game').get('selected').get('id'));
+      game.set('winner', controller.get('selected').get('id'));
       game.set('status', 'complete');
+
+      controller.set('finishing', true);
 
       game.save().then(function() {
         // We remove this game from the store so it's forced to refetch
