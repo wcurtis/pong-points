@@ -7,6 +7,7 @@ App.Game = DS.Model.extend({
   created_at: DS.attr('string', {
       defaultValue: function() { return new Date(); }
   }),
+  st_points_change: DS.attr('number'),
 
   player1: function() {
     return this.get('players')[0];

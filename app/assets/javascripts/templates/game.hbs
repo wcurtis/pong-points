@@ -1,40 +1,28 @@
 <div class="game-page">
-  {{#if gameInProgress}}
-    <h1>{{player1.first_name}} vs {{player2.first_name}}!</h1>
-    <hr>
-    <div class="row player-grid">
-      <div class="player-item col-xs-6 col-sm-4 col-sm-offset-2">
-        <a {{action 'toggleSelected' 'player1Controller'}} {{bind-attr class="player1Controller.isSelected:selected"}}>
-          <img {{bind-attr src="player1.profile_image_url"}}>
-        </a>
-      </div>
-      <div class="player-item col-xs-6 col-sm-4">
-        <a {{action 'toggleSelected' 'player2Controller'}} {{bind-attr class="player2Controller.isSelected:selected"}}>
-          <img {{bind-attr src="player2.profile_image_url"}}>
-        </a>
-      </div>
+  <h1>{{player1.first_name}} vs {{player2.first_name}}!</h1>
+  <hr>
+  <div class="row player-grid">
+    <div class="player-item col-xs-6 col-sm-4 col-sm-offset-2">
+      <a {{action 'toggleSelected' 'player1Controller'}} {{bind-attr class="player1Controller.isSelected:selected"}}>
+        <img {{bind-attr src="player1.profile_image_url"}}>
+      </a>
     </div>
-    <hr>
-    <div class="actions">
-      {{#if canFinish}}
-    	  <a {{action 'finish'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Finish Game</a>
+    <div class="player-item col-xs-6 col-sm-4">
+      <a {{action 'toggleSelected' 'player2Controller'}} {{bind-attr class="player2Controller.isSelected:selected"}}>
+        <img {{bind-attr src="player2.profile_image_url"}}>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="actions">
+    {{#if canFinish}}
+      {{#if finishing}}
+    	  <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Finishing Game..</a>
       {{else}}
-        <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Select Winner</a>
+        <a {{action 'finish'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Finish Game</a>
       {{/if}}
-    </div>
-  {{else}}
-    <h1>{{winningPlayer.first_name}} wins!</h1>
-    <hr>
-    <div class="row player-grid">
-      <div class="player-item col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-        <img {{bind-attr src="winningPlayer.profile_image_url"}}>
-      </div>
-    </div>
-    <div class="points-earned">+20 Points!</div>
-    <hr>
-    <div class="actions">
-      {{#link-to 'games.new' class="btn btn-primary btn-lg" role="button"}}New Game{{/link-to}}
-      {{#link-to 'index' class="btn btn-secondary btn-lg" role="button"}}Back Home{{/link-to}}
-    </div>
-  {{/if}}
+    {{else}}
+      <a {{action 'finish'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Select Winner</a>
+    {{/if}}
+  </div>
 </div>

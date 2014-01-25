@@ -20,11 +20,11 @@ class Player < ActiveRecord::Base
       puts "Added user to ST: " + user.email;
 
       # Send a signup event to ST
-      stEvent = SweetTooth::Event.create(
+      activity = SweetTooth::Activity.create(
         :customer_id  => user.st_id,
-        :event_type   => "signup"
+        :verb   => "signup"
       )
-      puts "Sent signup event to ST: " + stEvent.id;
+      puts "Sent signup event to ST: " + activity.id;
     end
 
     # Fetch and update the customer's points balance

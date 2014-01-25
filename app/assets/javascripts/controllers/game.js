@@ -12,6 +12,8 @@ App.GameController = Ember.ObjectController.extend({
     return this.get('selected') !== null;
   }.property('selected'),
 
+  finishing: false,
+
   /**
    * TODO: Find out a better way to bind these controller to the properties
    * of player1 and player2. There must be a better 'ember way'
@@ -29,14 +31,6 @@ App.GameController = Ember.ObjectController.extend({
   }.property('player2'),
 
   actions: {
-    finish: function() {
-
-      var game = this.get('model');
-      game.set('winner', this.get('selected').get('id'));
-      game.set('status', 'complete');
-
-      game.save();
-    },
 
     /**
      * TODO: This action also exists in the games.new controller.
@@ -77,6 +71,7 @@ App.GameController = Ember.ObjectController.extend({
       this.get('selected').deselect();
     }
     this.set('selected', null);
+    this.set('finishing', false);
   }
 
 });
