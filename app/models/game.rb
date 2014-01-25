@@ -28,6 +28,11 @@ class Game < ActiveRecord::Base
         sleep 1
         activity = SweetTooth::Activity.retrieve(game.st_activity_id)
       end
+
+      puts activity.inspect
+
+      game.st_points_change = activity.points_change
+      game.save!
     end
   end
 end
