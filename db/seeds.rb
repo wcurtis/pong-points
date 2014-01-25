@@ -15,6 +15,7 @@ players = Player.create([
   { first_name: 'Mohsen', last_name: "Hadianfard", email: "mhadianfard@sweettoothhq.com", profile_image_url: "/assets/players/mohsen.jpg" },
   { first_name: 'Steve', last_name: "Deckert", email: "sdeckert@sweettoothhq.com", profile_image_url: "/assets/players/steve.jpg" },
   { first_name: 'Vlad', last_name: "Vanca", email: "vvanca@sweettoothhq.com", profile_image_url: "/assets/players/vlad.jpg" },
+  { first_name: 'Walt', last_name: "Huber", email: "whuber@sweettoothhq.com", profile_image_url: "/assets/players/walt.jpg" },
 ])
 
 # Crate a finished game
