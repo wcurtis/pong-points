@@ -1,5 +1,8 @@
 class Game < ActiveRecord::Base
+
   has_and_belongs_to_many :players
+
+  before_create :redeemGamePlay
 
   after_update do |game|
 
@@ -35,4 +38,24 @@ class Game < ActiveRecord::Base
       game.save!
     end
   end
+
+
+  private
+    def redeemGamePlay
+      puts "REDEEMED"
+
+      redemptions = []
+      self.players.each do |player|
+        redemption = SweetTooth::Redemption.create(
+          :customer_id => self.players.first.st_id,
+          :redemption_option_id => 'rop_GV5tHuqGcIdJEk'
+        )
+        redemptions.push(redemption.id)
+      end
+
+      # self.st_redemption_ids = redemptions.join(",")
+
+      puts "Redemption created: " + redemptions.join(",")
+      # self.signed_up_on = Date.today
+    end
 end
