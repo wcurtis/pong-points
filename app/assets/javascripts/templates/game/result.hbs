@@ -3,7 +3,10 @@
     <hr>
     <div class="row player-grid">
       <div class="player-item col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-        <img {{bind-attr src="winningPlayer.profile_image_url"}}>
+          <div class="img-wrapper">
+            <img {{bind-attr src="winningPlayer.profile_image_url"}}>
+            <div class="points-balance">{{winningPlayer.st_points_balance}} Points</div>
+          </div>
       </div>
     </div>
     <div class="points-earned">+{{st_points_change}} Points!</div>
