@@ -4,6 +4,8 @@ App.GamesNewController = Ember.ArrayController.extend({
 
   selected: [],
 
+  saving: true,
+
   canSave: function() {
     return this.get('selected').length === 2;
   }.property('selected'),
@@ -21,7 +23,9 @@ App.GamesNewController = Ember.ArrayController.extend({
 
       var game = this.store.createRecord('game', gameData);
       
+      this.set('saving', true);
       game.save().then(function() {
+        self.set('saving', false);
         self.transitionToRoute('game', game);
       });
     },
@@ -69,6 +73,7 @@ App.GamesNewController = Ember.ArrayController.extend({
       selected.deselect();
     });
     this.set('selected', []);
+    this.set('saving', false);
   }
 
 });

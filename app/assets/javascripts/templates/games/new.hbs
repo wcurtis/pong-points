@@ -10,12 +10,20 @@
           <div class="points-balance">{{player.st_points_balance}} Points</div>
         </div>
         </a>
-      {{!-- {{player.name}} --}}
       </div>
     {{/each}}
   </div>
   <hr>
   <div class="actions">
-  	<a {{action 'save'}} {{bind-attr class="canSave:enabled:disabled :btn :btn-primary :btn-lg"}}>Start Game</a>
+    <p>Games cost 10 points per player</p>
+    {{#if canSave}}
+      {{#if saving}}
+        <a {{action 'save'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Starting Game..</a>
+      {{else}}
+        <a {{action 'save'}} {{bind-attr class=":btn :btn-primary :btn-lg"}}>Start Game</a>
+      {{/if}}
+    {{else}}
+      <a {{action 'save'}} {{bind-attr class=":disabled :btn :btn-primary :btn-lg"}}>Select Players</a>
+    {{/if}}
   </div>
 </div>
