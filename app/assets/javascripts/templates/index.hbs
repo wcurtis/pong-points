@@ -7,22 +7,16 @@
   <div class="row game-history">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <ul class="list-group">
+        {{#each game in controller}}
         <li class="list-group-item">
-          <img src="/assets/players/vlad.jpg">
-          <span class="points">+14</span>
+          <img {{bind-attr src="game.winningPlayer.profile_image_url"}}>
+          <span class="points">+{{game.st_points_change}}</span>
           <div class="description">
-            <p class="name">Vlad Vanca</p>
-            <p>won a game against <strong>Mohsen</strong></p>
+            <p class="name">{{game.winningPlayer.first_name}} {{game.winningPlayer.last_name}}</p>
+            <p>won a game against <strong>{{game.losingPlayer.first_name}}</strong></p>
           </div>
         </li>
-        <li class="list-group-item">
-          <img src="/assets/players/mike.jpg">
-          <span class="points">+14</span>
-          <div class="description">
-            <p class="name">Mike Rossi</p>
-            <p>won a game against <strong>Walt</strong></p>
-          </div>
-        </li>
+        {{/each}}
       </ul>
   </div>
 </div>

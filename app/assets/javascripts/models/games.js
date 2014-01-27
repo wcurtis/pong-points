@@ -4,7 +4,7 @@ App.Game = DS.Model.extend({
   status: DS.attr('string', {
     defaultValue: 'in_progress'
   }),
-  created_at: DS.attr('string', {
+  created_at: DS.attr('date', {
       defaultValue: function() { return new Date(); }
   }),
   st_points_change: DS.attr('number'),
@@ -19,6 +19,13 @@ App.Game = DS.Model.extend({
 
   winningPlayer: function() {
     return this.get('players').findBy('id', this.get('winner'));
+  }.property('winner'),
+
+  losingPlayer: function() {
+    if (this.get('player1').id != this.get('winner')) {
+      return this.get('player1');
+    }
+    return this.get('player2');
   }.property('winner'),
 
   players: DS.attr('raw')
