@@ -177,3 +177,36 @@ h1 {
   }
 }
 
+.game-history {
+
+  .list-group-item {
+
+    position: relative;
+    min-height: 100px;
+
+    img {
+      position: absolute;
+      width: 80px;
+    }
+
+    .description {
+      margin-left: 95px;
+
+      .name {
+        font-size: 20px;
+        font-weight: 500;
+
+        margin: 14px 0 0 0;
+      }
+    }
+
+    .points {
+      font-size: 40px;
+      float: right;
+      color: #47a447;
+      margin: 10px 10px 0 0;
+    }
+  }
+
+}
+
