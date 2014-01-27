@@ -8,7 +8,13 @@ class Api::GamesController < ApplicationController
     #   { id: 1, player1: 1, player2: 2, status: "in_progress", created_at: "Fri, 10 Jan 2014 06:01:19 GMT" },
     # ]
     
-    respond_with games: Game.all
+    result = Game.all.order("created_at DESC").take(5).map { |game| 
+      result = game.as_json
+      result['players'] = game.players
+      result
+    }
+
+    respond_with games: result
 
     # respond_to do |format|
     #   format.json { render :json => @games }

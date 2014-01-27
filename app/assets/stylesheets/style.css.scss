@@ -85,6 +85,7 @@ h1 {
 
   .jumbotron {
     text-align: center;
+    background-color: transparent;
 
     .btn {
       margin-top: 20px;
@@ -175,5 +176,54 @@ h1 {
   .fine-print {
     margin-top: 10px;
   }
+}
+
+.game-history {
+
+  .list-group-item {
+
+    position: relative;
+
+    &.title {
+      text-align: center;
+      font-size: 26px;
+    }
+
+    &.game {
+      min-height: 100px;
+
+      img {
+        position: absolute;
+        width: 80px;
+      }
+
+      .description {
+        margin-left: 95px;
+
+        .name {
+          font-size: 20px;
+          font-weight: 500;
+
+          margin: 6px 0 0 0;
+        }
+
+        .when {
+          color: grey;
+        }
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      .points {
+        font-size: 40px;
+        float: right;
+        color: #47a447;
+        margin: 10px 10px 0 0;
+      }
+    }
+  }
+
 }
 
