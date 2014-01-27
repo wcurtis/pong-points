@@ -7,13 +7,17 @@
   <div class="row game-history">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <ul class="list-group">
+        <li class="list-group-item title">
+          Recent Activity
+        </li>
         {{#each game in controller}}
-        <li class="list-group-item">
+        <li class="list-group-item game">
           <img {{bind-attr src="game.winningPlayer.profile_image_url"}}>
           <span class="points">+{{game.st_points_change}}</span>
           <div class="description">
             <p class="name">{{game.winningPlayer.first_name}} {{game.winningPlayer.last_name}}</p>
             <p>won a game against <strong>{{game.losingPlayer.first_name}}</strong></p>
+            <p class="when">{{fromNow game.created_at}}</p>
           </div>
         </li>
         {{/each}}
