@@ -2,6 +2,8 @@ require "httparty"
 
 class Player < ActiveRecord::Base
   has_and_belongs_to_many :games
+  
+  before_destroy :delete_st_customer
 
   after_initialize do |user|
 
@@ -37,4 +39,11 @@ class Player < ActiveRecord::Base
   def name
     return first_name + ' ' + last_name
   end
+
+  private
+    def delete_st_customer
+      customer = SweetTooth::Customer.retrieve(self.st_id);
+      customer.delete
+      puts "Deleted customer with st_id: " + customer.id;
+    end
 end
