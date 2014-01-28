@@ -22,7 +22,9 @@ class Game < ActiveRecord::Base
 
   after_initialize do |game|
 
-    if game.st_activity_id
+    # Only fetch for points earned on this activity if the activity
+    # has been send to Sweet Tooth and the points value is not already cached
+    if game.st_activity_id && (game.st_points_change == nil)
       activity = SweetTooth::Activity.retrieve(game.st_activity_id)
 
       # Poll Sweet Tooth until the activity is finished processing
