@@ -48,6 +48,7 @@ gem "ember-source", "~>1.1"
 
 gem 'httparty', '0.12.0'
 
-gem 'sweettooth', '~>1.0.0'
+# gem 'sweettooth', '~>1.0.0'
+gem 'sweettooth', :path => "/github/sweettooth-ruby"
 
 gem 'figaro'

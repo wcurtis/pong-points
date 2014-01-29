@@ -49,15 +49,15 @@ class Game < ActiveRecord::Base
       # Spend points on game play
       # TODO: Catch errors if a player has insufficient funds
       self.players.each do |player|
-        redemption = SweetTooth::Redemption.create(
+        redemption = SweetTooth::Spending.create(
           :customer_id => player.st_id,
-          :redemption_option_id => 'rop_GV5tHuqGcIdJEk' # Game play
+          :spending_option_id => 'rop_GV5tHuqGcIdJEk' # Game play
         )
         redemptions.push(redemption.id)
       end
 
       self.st_redemption_ids = redemptions.join(",")
 
-      puts "Redemption created: " + redemptions.join(",")
+      puts "Spending created: " + redemptions.join(",")
     end
 end
