@@ -40,6 +40,34 @@ App.GameRoute = Ember.Route.extend({
         router.transitionTo('gameResult', game.get('id'));
       });
     },
+
+    cancel: function() {
+
+      var self = this;
+
+      var router = this.get('router');
+      var controller = this.controllerFor('game');
+      var game = this.currentModel;
+
+      /**
+       * I'm not sure how to make ember do something like this.
+       * Posting to a custom url endpoint to perform actions
+       * on models. For now jquery will have to do.
+       * TODO: Emberify this at some point
+       */
+      Em.$.ajax({
+        type: "POST",
+        url: '/api/games/' + game.get('id') + '/cancel',
+        success: function() {
+          // We remove this game from the store so it's forced to refetch
+          // it on the route transition. This is required because we're 
+          // making the request outside of ember data
+          self.store.unloadRecord(game);
+          router.transitionTo('games.new');
+        },
+        dataType: 'json'
+      });
+    },
   }
 
 });
