@@ -41,6 +41,11 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def cancel
+    puts "CANCELL"
+    self.status = 'canceled'
+    self.save!
+  end
 
   private
     def redeemGamePlay

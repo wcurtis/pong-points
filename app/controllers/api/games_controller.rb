@@ -62,6 +62,12 @@ class Api::GamesController < ApplicationController
     renderObject @game
   end
 
+  def cancel
+    @game = Game.find(params[:id])
+    @game.cancel
+    renderObject @game
+  end
+
   # Serializes and renders our game
   # TODO: Need to get active model serializers working
   def renderObject game
