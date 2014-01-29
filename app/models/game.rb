@@ -41,6 +41,19 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def cancel
+
+    spendingsIds = self.st_redemption_ids.split(',')
+
+    # Cancel previous spendings so our players get their points back
+    spendingsIds.each do |id|
+      spending = SweetTooth::Spending.retrieve(id)
+      spending.cancel
+    end
+
+    self.status = 'canceled'
+    self.save!
+  end
 
   private
     def redeemGamePlay
@@ -49,11 +62,11 @@ class Game < ActiveRecord::Base
       # Spend points on game play
       # TODO: Catch errors if a player has insufficient funds
       self.players.each do |player|
-        redemption = SweetTooth::Spending.create(
+        spending = SweetTooth::Spending.create(
           :customer_id => player.st_id,
           :spending_option_id => 'game_play'
         )
-        redemptions.push(redemption.id)
+        redemptions.push(spending.id)
       end
 
       self.st_redemption_ids = redemptions.join(",")
