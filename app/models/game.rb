@@ -51,7 +51,7 @@ class Game < ActiveRecord::Base
       self.players.each do |player|
         redemption = SweetTooth::Spending.create(
           :customer_id => player.st_id,
-          :spending_option_id => 'rop_GV5tHuqGcIdJEk' # Game play
+          :spending_option_id => 'game_play'
         )
         redemptions.push(redemption.id)
       end
