@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125232633) do
+ActiveRecord::Schema.define(version: 20140130023522) do
 
   create_table "games", force: true do |t|
     t.string   "status"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20140125232633) do
     t.integer "player_id"
   end
 
+  add_index "games_players", ["game_id"], name: "games_players_game_id_fk", using: :btree
+  add_index "games_players", ["player_id"], name: "games_players_player_id_fk", using: :btree
+
   create_table "players", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -38,5 +41,8 @@ ActiveRecord::Schema.define(version: 20140125232633) do
     t.string   "st_id"
     t.integer  "st_points_balance"
   end
+
+  add_foreign_key "games_players", "games", name: "games_players_game_id_fk", dependent: :delete
+  add_foreign_key "games_players", "players", name: "games_players_player_id_fk", dependent: :delete
 
 end
