@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130023522) do
+ActiveRecord::Schema.define(version: 20140130030606) do
 
   create_table "games", force: true do |t|
     t.string   "status"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140130023522) do
     t.integer  "st_points_change"
     t.string   "st_redemption_ids"
   end
+
+  add_index "games", ["winner"], name: "games_winner_fk", using: :btree
 
   create_table "games_players", force: true do |t|
     t.integer "game_id"
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20140130023522) do
     t.string   "st_id"
     t.integer  "st_points_balance"
   end
+
+  add_foreign_key "games", "players", name: "games_winner_fk", column: "winner", dependent: :delete
 
   add_foreign_key "games_players", "games", name: "games_players_game_id_fk", dependent: :delete
   add_foreign_key "games_players", "players", name: "games_players_player_id_fk", dependent: :delete
