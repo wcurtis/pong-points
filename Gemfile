@@ -52,3 +52,6 @@ gem 'sweettooth', '~>1.1.0'
 # gem 'sweettooth', :path => "/github/sweettooth-ruby"
 
 gem 'figaro'
+
+gem 'foreigner'
+gem 'immigrant'
