@@ -1,9 +1,16 @@
 <div class="home-page">
-  <div class="jumbotron">
+  <div class="welcome-wrapper">
+    <div class="welcome">
+      <h1>Welcome to Pong!</h1>
+      {{#link-to 'games.new' class="btn btn-primary btn-lg" role="button"}}Start New Game{{/link-to}}
+    </div>
+  </div>
+  <hr>
+  {{!-- <div class="jumbotron">
   	<h1>Welcome to Pong!</h1>
   	<p>The pong app Sweet Tooth deserves</p>
     {{#link-to 'games.new' class="btn btn-primary btn-lg" role="button"}}Start New Game{{/link-to}}
-  </div>
+  </div> --}}
   <div class="row game-history">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <ul class="list-group">

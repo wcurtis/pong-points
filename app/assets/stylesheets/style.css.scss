@@ -83,6 +83,30 @@ h1 {
 
   padding-top: 20px;
 
+  .welcome-wrapper {
+    text-align: center;
+  }
+
+  .welcome {
+
+    text-align: center;
+    display: inline;
+
+    h1 {
+      display: inline-block;
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .btn {
+      display: inline-block;
+
+      margin-top: -14px;
+      margin-left: 15px;
+    }
+  }
+
   .jumbotron {
     text-align: center;
     background-color: transparent;
@@ -190,21 +214,31 @@ h1 {
     }
 
     &.game {
-      min-height: 100px;
+      @media (min-width: $screen-xs-max) {
+        min-height: 100px;
+      }
 
       img {
         position: absolute;
         width: 80px;
+        @media (max-width: $screen-xs-max) {
+          width: 65px;
+        }
       }
 
       .description {
         margin-left: 95px;
+        @media (max-width: $screen-xs-max) {
+          margin-left: 75px;
+        }
 
         .name {
           font-size: 20px;
           font-weight: 500;
 
-          margin: 6px 0 0 0;
+          @media (min-width: $screen-xs-max) {
+            margin: 6px 0 0 0;
+          }
         }
 
         .when {
@@ -220,7 +254,9 @@ h1 {
         font-size: 40px;
         float: right;
         color: #47a447;
-        margin: 10px 10px 0 0;
+        @media (min-width: $screen-xs-max) {
+          margin: 10px 10px 0 0;
+        }
       }
     }
   }
