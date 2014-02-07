@@ -8,10 +8,39 @@ class Game < ActiveRecord::Base
 
     if game.status == 'finished' && game.winner && game.st_activity_id == nil
 
+      winner = nil;
+      loser = nil;
+
+      self.players.each do |player|
+        if player.id == game.winner
+          winner = player
+        else
+          loser = player
+        end
+      end
+
+
+      # The idea with the handicap is if you beat someone with a higher points amount 
+      # than you, you should earn more points than if they beat you.
+      # 
+      # The algorithm takes the fraction of points the loser has of the winners
+      # and multiplies that by 100 (since ST dosn't support decimal step funcitons yet <-- GET ON THIS Y'ALL!!!)
+      # 
+      # Eg. Mike (1000 points) beats Bill (500 points) then Mike's handicap is 500/1000*100 = 50
+      #     --
+      #     Bill (500 points) beats Mike (1000) points then Bill's handicap is 1000/500*100 = 200
+      #     --
+      #     So Bill would earn more points for a win than Mike because of where they are in the standings
+      # 
+      handicap = (loser.st_points_balance.to_f / winner.st_points_balance.to_f) * 100;
+
       # Send game win activity to Sweet Tooth to earn points
       activity = SweetTooth::Activity.create(
-        "customer_id"  => Player.find(game.winner).st_id,
-        "verb"   => "game_win"
+        "customer_id"  => winner.st_id,
+        "verb"   => "game_win",
+        "object" => {
+          "handicap" => handicap
+        }
       )
       puts "Sent activity to ST: " + activity.id;
 
